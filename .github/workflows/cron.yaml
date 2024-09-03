@@ -6,6 +6,9 @@ on:
   schedule:
     - cron: "0 0 * * *"
 
+permissions:
+  contents: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -26,7 +29,7 @@ jobs:
         with:
           command: run
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.0
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: docs
